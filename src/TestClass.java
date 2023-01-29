@@ -17,10 +17,10 @@ public class TestClass {
 //    public void SomeMethodTest5(){
 //        System.out.println("Work test BeforeSuite");
 //    }
-    @BeforeSuite
-    public void SomeMethodTest55(){
-        System.out.println("Work test BeforeSuite");
-    }
+//    @BeforeSuite
+//    public void SomeMethodTest55(){
+//        System.out.println("Work test BeforeSuite");
+//    }
     @AfterSuite
     public void SomeMethodTest6(){
         System.out.println("Work test AfterSuite");

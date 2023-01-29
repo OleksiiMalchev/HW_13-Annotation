@@ -37,7 +37,9 @@ public class TestRunner {
                         "same “test class” must occur in a single instance");
             }
         }
-        beforeTest.invoke(instance);
+        if(countBefore!=0){
+            beforeTest.invoke(instance);
+        }
         methodsInClazzWithAnnotation.stream().sorted(new AnnotationComparator()).forEach(method -> {
             try {
                 method.invoke(instance);
@@ -46,6 +48,8 @@ public class TestRunner {
                 throw new RuntimeException(e);
             }
         });
-        afterTest.invoke(instance);
+        if(countAfter!=0){
+            afterTest.invoke(instance);
+        }
     }
 }
