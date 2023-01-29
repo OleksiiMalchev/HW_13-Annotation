@@ -13,8 +13,12 @@ public class TestClass {
     public void SomeMethodTest2(){
         System.out.println("Work SomeMethodTest2");
     }
+//    @BeforeSuite
+//    public void SomeMethodTest5(){
+//        System.out.println("Work test BeforeSuite");
+//    }
     @BeforeSuite
-    public void SomeMethodTest5(){
+    public void SomeMethodTest55(){
         System.out.println("Work test BeforeSuite");
     }
     @AfterSuite

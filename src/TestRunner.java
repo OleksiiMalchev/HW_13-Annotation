@@ -18,20 +18,21 @@ public class TestRunner {
         Object instance = constructor.newInstance();
         Method beforeTest = null;
         Method afterTest = null;
-        int count = 0;
+        int countBefore = 0;
+        int countAfter = 0;
         for (Method method : clazz.getDeclaredMethods()) {
             if (method.isAnnotationPresent(Test.class)) {
                 methodsInClazzWithAnnotation.add(method);
             }
             if (method.isAnnotationPresent(BeforeSuite.class)) {
                 beforeTest = method;
-                count++;
+                countBefore++;
             }
             if (method.isAnnotationPresent(AfterSuite.class)) {
                 afterTest = method;
-                count++;
+                countAfter++;
             }
-            if (count > 2) {
+            if (countBefore  > 1 || countAfter>1) {
                 throw new RuntimeException("Methods with @BeforeSuite and @AfterSuite annotations within the " +
                         "same “test class” must occur in a single instance");
             }
