@@ -32,12 +32,12 @@ public class TestRunner {
                 afterTest = method;
                 countAfter++;
             }
-            if (countBefore  > 1 || countAfter>1) {
+            if (countBefore > 1 || countAfter > 1) {
                 throw new RuntimeException("Methods with @BeforeSuite and @AfterSuite annotations within the " +
                         "same “test class” must occur in a single instance");
             }
         }
-        if(countBefore!=0){
+        if (countBefore != 0) {
             beforeTest.invoke(instance);
         }
         methodsInClazzWithAnnotation.stream().sorted(new AnnotationComparator()).forEach(method -> {
@@ -48,7 +48,7 @@ public class TestRunner {
                 throw new RuntimeException(e);
             }
         });
-        if(countAfter!=0){
+        if (countAfter != 0) {
             afterTest.invoke(instance);
         }
     }
